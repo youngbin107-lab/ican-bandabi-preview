@@ -1,4 +1,5 @@
 (() => {
+ window.ICAN_DESIGN_PREVIEW=true;
  const original=window.fetch.bind(window),examples=[{"id":"example-pyeongchang","region":"pyeongchang","title":"[예시] 월정사 전나무숲","body":"평창의 전나무숲을 걸으며 자연을 만나는 여행지입니다.","address":"","image":""},{"id":"example-gangneung","region":"gangneung","title":"[예시] 경포해변","body":"강릉의 푸른 바다와 해변 풍경을 즐길 수 있는 여행지입니다.","address":"","image":""}],mediaExamples=[{"id":"example-gallery","kind":"gallery","title":"[예시] 함께하는 스포츠 캠프","body":"캠프 사진이 등록되면 제목과 소개 일부가 이곳에 표시됩니다. 상세보기에서 사진과 전체 내용을 확인할 수 있습니다.","image":"visual-stories.png","videoUrl":""},{"id":"example-video","kind":"video","title":"[예시] 영상으로 만나는 캠프","body":"관리자가 등록한 영상의 제목과 소개를 확인하는 화면 예시입니다. 실제 영상이 등록되면 상세페이지에서 재생하거나 원본 영상으로 이동할 수 있습니다.","image":"visual-program.png","videoUrl":""}];
  const respond=(body,status=200)=>Promise.resolve(new Response(JSON.stringify(body),{status,headers:{'content-type':'application/json'}}));
  window.fetch=(input,options={})=>{
