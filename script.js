@@ -1,1 +1,12 @@
 const menu=document.querySelector('.menu');const links=document.querySelector('#links');const groups=[...document.querySelectorAll('.nav-group')];if(menu&&links){menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')==='true';menu.setAttribute('aria-expanded',String(!open));menu.setAttribute('aria-label',open?'메뉴 열기':'메뉴 닫기');links.classList.toggle('open',!open);if(open)groups.forEach(g=>g.open=false)});links.addEventListener('click',e=>{if(e.target.closest('a')){menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','메뉴 열기');links.classList.remove('open');groups.forEach(g=>g.open=false)}});groups.forEach(group=>group.addEventListener('toggle',()=>{if(group.open)groups.forEach(other=>{if(other!==group)other.open=false})}));document.addEventListener('keydown',e=>{if(e.key==='Escape'){groups.forEach(g=>g.open=false);if(links.classList.contains('open')){links.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','메뉴 열기');menu.focus()}}});document.addEventListener('click',e=>{if(!e.target.closest('.nav'))groups.forEach(g=>g.open=false)})}
+
+// Keep the floating shortcuts from covering footer links on small screens.
+document.addEventListener('DOMContentLoaded',()=>{
+ const footer=document.querySelector('.camp-footer');
+ const remote=document.querySelector('.quick-remote');
+ if(!footer||!remote)return;
+ const sync=()=>{const r=footer.getBoundingClientRect();remote.classList.toggle('is-footer-visible',r.top<window.innerHeight&&r.bottom>0)};
+ if('IntersectionObserver' in window)new IntersectionObserver(sync,{threshold:0}).observe(footer);
+ else {window.addEventListener('scroll',sync,{passive:true});window.addEventListener('resize',sync)}
+ sync();
+});

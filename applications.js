@@ -2,7 +2,7 @@
  'use strict';
  const app=document.querySelector('#applicationApp');if(!app)return;
  const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
- const camps={family:'가족 캠프',general:'일반 캠프',soohorang:'수호랑캠프 (기존)',bandabi:'반다비캠프 (기존)'},statuses={received:'접수 완료',reviewing:'검토 중',confirmed:'참가 확정',cancelled:'신청 취소'};
+ const camps={family:'가족 캠프',general:'일반 캠프',soohorang:'수호랑캠프 (기존)',bandabi:'기존 캠프'},statuses={received:'접수 완료',reviewing:'검토 중',confirmed:'참가 확정',cancelled:'신청 취소'};
  const regions=['서울','부산','대구','인천','광주','대전','울산','세종','경기','강원','충북','충남','전북','전남','경북','경남','제주'];
  const today=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Seoul'}).format(new Date());
  const field=(name,label,options='')=>`<label class="application-field"><span>${label}</span><input name="${name}" ${options}></label>`;
