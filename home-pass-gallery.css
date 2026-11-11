@@ -356,6 +356,13 @@
   object-fit: cover;
 }
 
+.home-gallery-credit {
+  margin: 9px 0 0;
+  color: #615d6b;
+  font-size: 12px;
+  text-align: right;
+}
+
 @media (min-width: 1001px) {
   .home-pass .wrap {
     padding-right: 130px;
