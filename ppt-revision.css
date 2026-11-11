@@ -338,8 +338,7 @@
   outline-offset: 3px;
 }
 
-.wave-carousel-controls[hidden],
-.wave-carousel-controls button[hidden] {
+.wave-carousel-controls[hidden] {
   display: none;
 }
 
@@ -420,7 +419,7 @@
     margin-top: 12px;
   }
 
-  .wave-carousel-controls button:not([hidden]) {
+  .wave-carousel-controls button {
     display: grid;
     place-items: center;
     inline-size: 44px;
@@ -437,11 +436,6 @@
   .wave-carousel-controls button:focus-visible {
     outline: 2px solid #592d88;
     outline-offset: 2px;
-  }
-
-  .wave-carousel-controls .wave-carousel-play:not([hidden]) {
-    background: #f5effb;
-    font-size: 15px;
   }
 
   .wave-carousel-progress {

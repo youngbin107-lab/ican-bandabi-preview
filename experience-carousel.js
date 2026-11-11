@@ -6,7 +6,6 @@
   const slides = [...track.children];
   const controls = section.querySelector('.wave-carousel-controls');
   const dots = [...controls.querySelectorAll('.wave-carousel-progress i')];
-  const toggle = controls.querySelector('.wave-carousel-play');
   const mobile = matchMedia('(max-width: 600px)');
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const interval = 5000;
@@ -16,13 +15,12 @@
   let timer;
   let settleTimer;
   let inView = false;
-  let playing = true;
   let pointerDown = false;
 
   function schedule() {
     clearTimeout(timer);
     const keyboardFocus = section.contains(document.activeElement) && document.activeElement.matches(':focus-visible');
-    if (mobile.matches && !reducedMotion.matches && playing && inView && !document.hidden && !pointerDown && !keyboardFocus) {
+    if (mobile.matches && !reducedMotion.matches && inView && !document.hidden && !pointerDown && !keyboardFocus) {
       timer = setTimeout(() => move(1), interval);
     }
   }
@@ -50,20 +48,11 @@
   function updateControls() {
     section.toggleAttribute('data-carousel-ready', mobile.matches);
     controls.hidden = !mobile.matches;
-    toggle.hidden = reducedMotion.matches;
-    toggle.setAttribute('aria-pressed', String(playing));
-    toggle.title = playing ? '자동 넘김 일시정지' : '자동 넘김 시작';
-    toggle.firstElementChild.textContent = playing ? 'Ⅱ' : '▶';
     schedule();
   }
 
   controls.querySelectorAll('[data-slide-step]').forEach(button => {
     button.addEventListener('click', () => move(Number(button.dataset.slideStep)));
-  });
-
-  toggle.addEventListener('click', () => {
-    playing = !playing;
-    updateControls();
   });
 
   track.addEventListener('scroll', () => {
@@ -99,7 +88,7 @@
     showIndex(0);
     track.scrollLeft = 0;
   });
-  reducedMotion.addEventListener('change', updateControls);
+  reducedMotion.addEventListener('change', schedule);
 
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver(([entry]) => {
