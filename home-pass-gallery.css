@@ -332,18 +332,14 @@
 }
 
 .home-gallery-slider {
-  position: relative;
   margin-top: 17px;
 }
 
 .home-gallery-controls:not([hidden]) {
-  position: absolute;
-  inset-inline: 0;
-  top: 50%;
   display: flex;
-  justify-content: space-between;
-  transform: translateY(-50%);
-  pointer-events: none;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 12px;
 }
 
 .home-gallery-controls button {
@@ -358,7 +354,6 @@
   color: #62269e;
   font: 700 26px/1 system-ui, sans-serif;
   cursor: pointer;
-  pointer-events: auto;
 }
 
 .home-gallery-controls button:disabled {
