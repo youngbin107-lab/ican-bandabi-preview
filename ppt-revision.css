@@ -204,27 +204,42 @@
   }
 }
 
-.home-page .wave-explore h2 {
-  margin-top: 0;
+.home-page .home-section-title {
+  margin: 0 0 16px;
+  font-size: clamp(34px, 3.4vw, 49px);
+  font-weight: 900;
+  line-height: 1.24;
+  letter-spacing: -.045em;
   text-wrap: balance;
   word-break: keep-all;
 }
 
-.home-page .wave-explore .v2-sub {
+.home-page .home-section-lead {
   font-size: 20px;
+  color: #716b78;
   line-height: 1.7;
   word-break: keep-all;
 }
 
 @media (min-width: 1001px) {
-  .home-page .wave-explore .v2-sub {
+  .home-page .home-section-title {
+    margin-bottom: 12px;
+    font-size: 30px;
+  }
+
+  .home-page .home-section-lead {
     font-size: 16px;
     line-height: 1.8;
   }
 }
 
 @media (max-width: 850px) {
-  .home-page .wave-explore .v2-sub {
+  .home-page .home-section-title {
+    font-size: 34px;
+    letter-spacing: -1.6px;
+  }
+
+  .home-page .home-section-lead {
     font-size: 17px;
   }
 }
