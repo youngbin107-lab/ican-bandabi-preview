@@ -1,0 +1,503 @@
+.home-pass {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  background: #fff;
+}
+
+.home-pass .wrap,
+.home-gallery > .wrap {
+  width: 100%;
+  max-width: 1320px;
+}
+
+.pass-overview {
+  overflow: hidden;
+  background: #f0f0f2;
+}
+
+.pass-overview-inner {
+  display: grid;
+  grid-template-columns: minmax(135px, .76fr) minmax(185px, 1.02fr) minmax(0, 2.82fr);
+  grid-template-areas: "phone copy benefits";
+  align-items: center;
+  gap: clamp(14px, 1.65vw, 24px);
+  padding-block: 22px;
+}
+
+.home-pass-copy {
+  grid-area: copy;
+}
+
+.home-pass-copy h2,
+.home-gallery h2 {
+  margin: 0;
+  color: #242133;
+  font-size: clamp(27px, 2.65vw, 38px);
+  font-weight: 900;
+  line-height: 1.17;
+  letter-spacing: -.055em;
+  word-break: keep-all;
+}
+
+.home-pass-copy h2 span {
+  color: #62269e;
+  letter-spacing: -.03em;
+}
+
+.home-pass-copy p {
+  max-width: 26em;
+  margin: 12px 0 0;
+  color: #5d5968;
+  font-size: 15px;
+  line-height: 1.65;
+  word-break: keep-all;
+}
+
+.pass-benefit-grid {
+  display: grid;
+  grid-area: benefits;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pass-benefit {
+  --symbol: #247255;
+  --icon-bg: #e1f1e7;
+  --card-bg: #eff8f2;
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  min-width: 0;
+  padding: 16px 12px 15px;
+  border: 1px solid var(--icon-bg);
+  border-radius: 16px;
+  background: linear-gradient(145deg, #fff, var(--card-bg));
+  box-shadow: 0 7px 21px #25213808;
+}
+
+.pass-benefit-alert {
+  --symbol: #335e9d;
+  --icon-bg: #e1ebfb;
+  --card-bg: #eff4fc;
+}
+
+.pass-benefit-certificate {
+  --symbol: #7244a1;
+  --icon-bg: #ede4f7;
+  --card-bg: #f5effa;
+}
+
+.pass-benefit h3 {
+  margin: 0 0 5px;
+  color: #242133;
+  font-size: clamp(15px, 1.4vw, 19px);
+  font-weight: 900;
+  line-height: 1.3;
+  letter-spacing: -.045em;
+  word-break: keep-all;
+}
+
+.pass-benefit p {
+  margin: 0;
+  color: #555462;
+  font-size: 14px;
+  line-height: 1.5;
+  word-break: keep-all;
+}
+
+.pass-benefit-icon {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--icon-bg);
+  color: var(--symbol);
+}
+
+.pass-benefit-icon::before,
+.pass-benefit-icon::after,
+.pass-benefit-icon i {
+  position: absolute;
+  display: block;
+  content: "";
+}
+
+.pass-benefit-management .pass-benefit-icon::before {
+  inset: 12px 13px 9px;
+  border: 2px solid currentColor;
+  border-radius: 3px;
+}
+
+.pass-benefit-management .pass-benefit-icon::after {
+  inset: 9px 16px auto;
+  height: 5px;
+  border: 2px solid currentColor;
+  border-radius: 3px;
+  background: var(--icon-bg);
+}
+
+.pass-benefit-management .pass-benefit-icon i {
+  inset: 19px 17px auto;
+  height: 2px;
+  background: currentColor;
+  box-shadow: 0 5px currentColor;
+}
+
+.pass-benefit-alert .pass-benefit-icon::before {
+  inset: 10px 13px 15px;
+  border: 2px solid currentColor;
+  border-bottom: 0;
+  border-radius: 10px 10px 2px 2px;
+}
+
+.pass-benefit-alert .pass-benefit-icon::after {
+  inset: 26px 11px auto;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+}
+
+.pass-benefit-alert .pass-benefit-icon i {
+  inset: 30px 18px auto;
+  height: 3px;
+  border-radius: 0 0 8px 8px;
+  background: currentColor;
+}
+
+.pass-benefit-certificate .pass-benefit-icon::before {
+  inset: 11px 9px 13px;
+  border: 2px solid currentColor;
+  border-radius: 3px;
+}
+
+.pass-benefit-certificate .pass-benefit-icon::after {
+  inset: 21px 12px auto auto;
+  width: 8px;
+  height: 8px;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  background: var(--icon-bg);
+}
+
+.pass-benefit-certificate .pass-benefit-icon i {
+  inset: 17px 16px auto 14px;
+  height: 2px;
+  background: currentColor;
+}
+
+.home-pass-copy .v2-pill {
+  min-height: 44px;
+  margin: 15px 0 0;
+  padding-inline: 20px;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.home-pass-visual {
+  position: relative;
+  display: grid;
+  grid-area: phone;
+  place-items: center;
+  min-width: 0;
+  min-height: 243px;
+  isolation: isolate;
+}
+
+.home-pass-visual::before {
+  position: absolute;
+  z-index: -1;
+  width: min(118%, 222px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, #e3e1e9 0 48%, #e9e8ed 48% 63%, #eeedf0 63%);
+  content: "";
+}
+
+.home-pass-phone {
+  width: 17.6em;
+  padding: .52em;
+  border: 1px solid #2e2441;
+  border-radius: 2.65em;
+  background: #2e2441;
+  box-shadow: -.35em .2em 0 #4a3e5d, -1em 1.5em 2.5em #33284631;
+  font-size: clamp(6.4px, .56vw, 7.3px);
+  transform: rotate(-10deg);
+}
+
+.home-pass-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 30em;
+  padding: .75em 1.2em .6em;
+  border-radius: 2.15em;
+  background: linear-gradient(#f4eafa, #fff 69%);
+  color: #30263c;
+}
+
+.home-pass-camera {
+  width: 4.35em;
+  height: .66em;
+  border-radius: .8em;
+  background: #2e2441;
+}
+
+.home-pass-phone-brand {
+  margin-top: .9em;
+  font-size: 1.36em;
+  font-weight: 900;
+  letter-spacing: -.05em;
+}
+
+.home-pass-phone-brand span {
+  color: #62269e;
+}
+
+.home-pass-stamp {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 10.2em;
+  aspect-ratio: 1;
+  margin-top: 1.15em;
+  border-radius: 50%;
+  background: conic-gradient(from 5deg, #62269e, #a678d5 60%, #ead9f5 60% 100%);
+  box-shadow: 0 .65em 1.55em #66309924;
+}
+
+.home-pass-stamp::after {
+  position: absolute;
+  inset: .22em .95em auto auto;
+  width: 1.18em;
+  aspect-ratio: 1;
+  border: .15em solid #fff;
+  border-radius: 50%;
+  background: #ffcf46;
+  content: "";
+}
+
+.home-pass-stamp-inner {
+  display: grid;
+  place-items: center;
+  width: 8.95em;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 68%, #ecdbf7, #fefbff 80%);
+}
+
+.home-pass-stamp-inner img {
+  display: block;
+  width: 6.3em;
+  height: 6.3em;
+  object-fit: contain;
+}
+
+.home-pass-phone-caption {
+  margin: .82em 0 .95em;
+  color: #592788;
+  font-size: 1.04em;
+}
+
+.home-pass-phone-item {
+  display: flex;
+  align-items: center;
+  gap: .65em;
+  align-self: stretch;
+  margin-bottom: .5em;
+  padding: .53em .62em;
+  border: 1px solid #ede6f4;
+  border-radius: .85em;
+  background: #fff;
+  font-size: .92em;
+  font-weight: 800;
+}
+
+.home-pass-phone-item span {
+  display: grid;
+  place-items: center;
+  width: 2.1em;
+  height: 2.1em;
+  border-radius: .65em;
+  background: #f1e7fa;
+  color: #62269e;
+  font-size: .83em;
+}
+
+.home-pass-phone-home {
+  width: 5.1em;
+  height: .36em;
+  margin-top: auto;
+  border-radius: 1em;
+  background: #2e2441;
+}
+
+.home-gallery {
+  display: flex;
+  align-items: center;
+  padding-block: 25px 35px;
+  scroll-margin-top: var(--home-header);
+}
+
+.home-gallery h2 {
+  text-align: center;
+}
+
+.home-gallery-slider {
+  position: relative;
+  margin-top: 17px;
+}
+
+.home-gallery-controls:not([hidden]) {
+  position: absolute;
+  inset-inline: 0;
+  top: 50%;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.home-gallery-controls button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid #ded2ec;
+  border-radius: 50%;
+  background: #fff;
+  color: #62269e;
+  font: 700 26px/1 system-ui, sans-serif;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.home-gallery-controls button:disabled {
+  color: #998ba7;
+  cursor: default;
+}
+
+.home-gallery-slides {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - 28px) / 3);
+  gap: 14px;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  margin: 0 53px;
+  padding: 0 0 6px;
+  list-style: none;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: #c7b3d9 transparent;
+}
+
+.home-gallery-slides:focus-visible,
+.home-gallery-controls button:focus-visible {
+  outline: 2px solid #62269e;
+  outline-offset: 2px;
+}
+
+.home-gallery-slides > li {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #e8e1ed;
+  border-radius: 16px;
+  background: #f0f0f2;
+  scroll-snap-align: start;
+}
+
+.home-gallery-slides img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+@media (min-width: 1001px) {
+  .home-pass .wrap {
+    padding-right: 130px;
+  }
+}
+
+@media (max-width: 850px) {
+  .home-pass {
+    grid-template-rows: auto;
+  }
+
+  .pass-overview-inner {
+    grid-template-columns: minmax(116px, .8fr) minmax(0, 1.2fr);
+    grid-template-areas: "phone copy" "benefits benefits";
+    gap: 19px;
+    padding-block: 22px 28px;
+  }
+
+  .home-gallery-slides {
+    grid-auto-columns: calc((100% - 14px) / 2);
+  }
+}
+
+@media (max-width: 560px) {
+  .pass-benefit-grid {
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+
+  .pass-benefit {
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    padding: 10px 12px;
+  }
+
+  .pass-overview-inner {
+    grid-template-columns: minmax(105px, .76fr) minmax(0, 1.24fr);
+    column-gap: 12px;
+  }
+
+  .home-pass-visual {
+    min-height: 192px;
+  }
+
+  .home-pass-phone {
+    font-size: 5.45px;
+  }
+
+  .home-pass-copy h2 {
+    font-size: clamp(21px, 5.8vw, 28px);
+  }
+
+  .home-pass-copy p {
+    margin-top: 8px;
+    font-size: 13px;
+  }
+
+  .home-pass-copy .v2-pill {
+    min-height: 40px;
+    margin-top: 12px;
+    padding-inline: 12px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  .home-gallery {
+    padding-block: 28px 35px;
+  }
+
+  .home-gallery-controls:not([hidden]) {
+    position: static;
+    justify-content: center;
+    margin-top: 11px;
+    transform: none;
+  }
+
+  .home-gallery-slides {
+    grid-auto-columns: calc(100% - 39px);
+    gap: 11px;
+    margin-inline: 0;
+  }
+}
