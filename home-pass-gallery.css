@@ -64,30 +64,16 @@
 }
 
 .pass-benefit {
-  --symbol: #247255;
-  --icon-bg: #e1f1e7;
-  --card-bg: #eff8f2;
+  --icon-bg: #f2eaf8;
   display: grid;
   align-content: start;
   gap: 12px;
   min-width: 0;
   padding: 16px 12px 15px;
-  border: 1px solid var(--icon-bg);
+  border: 1px solid #e5d9ed;
   border-radius: 16px;
-  background: linear-gradient(145deg, #fff, var(--card-bg));
-  box-shadow: 0 7px 21px #25213808;
-}
-
-.pass-benefit-alert {
-  --symbol: #335e9d;
-  --icon-bg: #e1ebfb;
-  --card-bg: #eff4fc;
-}
-
-.pass-benefit-certificate {
-  --symbol: #7244a1;
-  --icon-bg: #ede4f7;
-  --card-bg: #f5effa;
+  background: #fff;
+  box-shadow: 0 5px 16px #2b17490a;
 }
 
 .pass-benefit h3 {
@@ -114,7 +100,7 @@
   height: 42px;
   border-radius: 12px;
   background: var(--icon-bg);
-  color: var(--symbol);
+  color: #62269e;
 }
 
 .pass-benefit-icon::before,
@@ -345,73 +331,24 @@
   text-align: center;
 }
 
-.home-gallery-slider {
-  position: relative;
-  margin-top: 17px;
-}
-
-.home-gallery-controls:not([hidden]) {
-  position: absolute;
-  inset-inline: 0;
-  top: 50%;
-  display: flex;
-  justify-content: space-between;
-  gap: 8px;
-  transform: translateY(-50%);
-  pointer-events: none;
-}
-
-.home-gallery-controls button {
+.home-gallery-grid {
   display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  padding: 0;
-  border: 1px solid #ded2ec;
-  border-radius: 50%;
-  background: #fff;
-  color: #62269e;
-  font: 700 26px/1 system-ui, sans-serif;
-  cursor: pointer;
-  pointer-events: auto;
-}
-
-.home-gallery-controls button:disabled {
-  color: #998ba7;
-  cursor: default;
-}
-
-.home-gallery-slides {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: calc((100% - 28px) / 3);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
-  overflow-x: auto;
-  overscroll-behavior-inline: contain;
-  margin: 0 53px;
-  padding: 0 0 6px;
+  margin: 17px 0 0;
+  padding: 0;
   list-style: none;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: thin;
-  scrollbar-color: #c7b3d9 transparent;
 }
 
-.home-gallery-slides:focus-visible,
-.home-gallery-controls button:focus-visible {
-  outline: 2px solid #62269e;
-  outline-offset: 2px;
-}
-
-.home-gallery-slides > li {
+.home-gallery-grid > li {
   min-width: 0;
   overflow: hidden;
   border: 1px solid #e8e1ed;
   border-radius: 16px;
   background: #f0f0f2;
-  scroll-snap-align: start;
 }
 
-.home-gallery-slides img {
+.home-gallery-grid img {
   display: block;
   width: 100%;
   height: auto;
@@ -436,9 +373,12 @@
     gap: 19px;
     padding-block: 22px 28px;
   }
+}
 
-  .home-gallery-slides {
-    grid-auto-columns: calc((100% - 14px) / 2);
+@media (max-width: 650px) {
+  .home-gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
   }
 }
 
@@ -486,18 +426,5 @@
 
   .home-gallery {
     padding-block: 28px 35px;
-  }
-
-  .home-gallery-controls:not([hidden]) {
-    position: static;
-    justify-content: center;
-    margin-top: 11px;
-    transform: none;
-  }
-
-  .home-gallery-slides {
-    grid-auto-columns: calc(100% - 39px);
-    gap: 11px;
-    margin-inline: 0;
   }
 }
